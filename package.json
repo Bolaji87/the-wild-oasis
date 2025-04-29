@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "@tanstack/react-query": "^4.36.1",
     "components": "^0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
