@@ -3,7 +3,7 @@ import Row from "../ui/Row";
 import CabinTable from "../features/cabins/CabinTable";
 import Button from "../ui/Button";
 import { useState } from "react";
-import CreateCabinForm from "../../public/CreateCabinForm-v1";
+import CreateCabinForm from "../features/cabins/CreateCabinForm";
 
 function Cabins() {
   const [showForm, setShowForm] = useState(false);

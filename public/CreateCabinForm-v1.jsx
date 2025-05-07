@@ -9,14 +9,13 @@ import Button from "../src/ui/Button";
 import FileInput from "../src/ui/FileInput";
 import Textarea from "../src/ui/Textarea";
 
-// import { createCabin } from "../src/services/apiCabins";
-import { createEditCabin } from "../src/services/apiCabins";
+import { createCabin } from "../src/services/apiCabins";
 
 function CreateCabinForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
   const queryClient = useQueryClient();
   const { mutate, isLoading: isCreating } = useMutation({
-    mutationFn: (newCabin) => createEditCabin(newCabin),
+    mutationFn: (newCabin) => createCabin(newCabin),
 
     onSuccess: () => {
       toast.success("cabin successfully created");
