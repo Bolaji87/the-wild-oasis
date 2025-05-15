@@ -6,21 +6,14 @@ import { useCabins } from "./useCabins";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
+import Empty from "../../ui/Empty";
 
 function CabinTable() {
-  // before custom hook ⬇️
-  // const {
-  //   isLoading,
-  //   data: cabins,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["cabins"],
-  //   queryFn: getCabins,
-  // });
+  const [searchParams] = useSearchParams();
   const { isLoading, cabins } = useCabins();
 
-  const [searchParams] = useSearchParams();
   if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resourceName="useCabins" />;
 
   //1) FILTER
   const filteredValue = searchParams.get("discount") || "all";
