@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import logoLight from "../data/img/logo-light.png";
+// import logoLight from "../data/img/logo-light.png";
+import logoLight from "/logo-light.png";
 
 const StyledLogo = styled.div`
   text-align: center;
