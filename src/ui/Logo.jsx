@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 // import logoLight from "../data/img/logo-light.png";
 import logoLight from "/logo-light.png";
+import logoDark from "/logo-dark.png";
+
+import { useDarkMode } from "../context/DarkModeContext";
 
 const StyledLogo = styled.div`
   text-align: center;
@@ -16,9 +19,13 @@ const Img = styled.img`
   /* <Img src="logo-light.png" alt="Logo" /> */
 }
 function Logo() {
+  const { isDarkMode } = useDarkMode();
+
+  const src = isDarkMode ? logoDark : logoLight;
+
   return (
     <StyledLogo>
-      <Img src={logoLight} alt="Logo-light" />
+      <Img src={src} alt="Logo-light" />
     </StyledLogo>
   );
 }
