@@ -13,6 +13,8 @@ import Spinner from "../../ui/Spinner";
 import { useRecentStays } from "./useRecentStays";
 import Stats from "./Stats";
 import { useCabins } from "../cabins/useCabins";
+import SalesChart from "./SalesChart";
+import DurationChart from "./DurationChart";
 
 export default function DashboardLayout() {
   const { isLoading: isLoading1, bookings } = useRecentBookings();
@@ -27,8 +29,6 @@ export default function DashboardLayout() {
 
   if (isLoading1 || isLoading2 || isLoading3) return <Spinner />;
 
-  console.log(bookings);
-
   return (
     <StyledDashboardLayout>
       <Stats
@@ -38,8 +38,10 @@ export default function DashboardLayout() {
         cabinCount={cabins.length}
       />
       <div>Today's activity</div>
-      <div>Chat stay duration</div>
-      <div>Chat sales</div>
+
+      <DurationChart confirmedStays={confirmedStays} />
+
+      <SalesChart bookings={bookings} numDays={numDays} />
     </StyledDashboardLayout>
   );
 }
