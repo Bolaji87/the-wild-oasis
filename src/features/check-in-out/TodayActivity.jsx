@@ -40,7 +40,7 @@ const NoActivity = styled.p`
 `;
 
 export default function TodayActivity() {
-  const { activities, isLoading } = useTodayActivity();
+  const { activities = [], isLoading } = useTodayActivity();
 
   return (
     <StyledToday>
